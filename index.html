@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dan Oswalt</title>
+    <link rel="stylesheet" href="vendors/styles/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One|Droid+Serif' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/modules.css">
+
+  </head>
+
+  <body>
+    <main>
+      <!-- 'page wrap' is for the css-tricks sticky footer solution -->
+      <div class='page-wrap'>
+        <header class='title-header'>
+          <h1 id='title-headline'>Dan Oswalt</h1>
+          <nav id='nav-links'>
+            <ul>
+              <a href=''><li class="tab" data-content="projects-module">Home</li><a>
+              <a href=''><li class="tab" data-content="about">About</li><a>
+              <a href='https://github.com/DanOswalt' target="_blank" ><li>GitHub</li><a>
+              <a href='' target="_blank" ><li>Twitter</li><a>
+              <a href='' target="_blank" ><li>LinkedIn</li><a>
+            </ul>
+          </nav>
+        </header>
+
+        <!-- Project-views load here -->
+        <section id='projects-module' class='tab-view'>
+        </section>
+
+        <!-- about tab content -->
+        <section id='about' class='tab-view'>
+          <div class='about-container'>
+            <img src='img/profilepic.jpeg'>
+            <p>Some info about me!</p>
+            <p>Fascinating information Fascinating information Fascinating information Fascinating information Fascinating information  </p>
+          </div>
+        </section>
+      </div><!-- end page wrap -->
+
+      <!-- Dynamic foot loads here -->
+      <footer id='site-footer'>
+      </footer>
+
+    </main>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+  <script src="scripts/project.js"></script>
+  <script src="scripts/ProjectModule.js"></script>
+  <script src="scripts/ViewHandler.js"></script>
+  <script src="scripts/repo.js"></script>
+  <script src="scripts/githubToken.js"></script>
+  <script>
+    ViewHandler.init();
+    Handlebars.registerHelper('daysAgo', function() {
+      return parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago';
+    });
+  </script>
+</html>
